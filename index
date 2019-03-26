@@ -1,5 +1,8 @@
+#! /usr/bin/env node
+
 const inquirer = require('inquirer')
 const util = require('util')
+const chalk = require('chalk')
 const exec = util.promisify(require('child_process').exec)
 
 const key = 'Docker images clean tools'
@@ -41,7 +44,6 @@ inquirer
     }
   ])
   .then(async answer => {
-    console.log('~~~~~~~doing~~~~~~~')
     const choiceVal = answer[key]
     let ret
     try {
@@ -54,11 +56,11 @@ inquirer
           }
         ])
   
+        console.log(chalk.bgRed('~~~~~~~doing~~~~~~~'))
         ret = await exec(`docker rmi ${answer[choiceVal]}`)
-  
       } else if (choiceVal === 'registry') {
-        console.log('attention: This operation deletes all registry that match this value, is you dont not want, use ctrl+c to exit.')
-
+        
+        console.log(chalk.red('attention: This operation deletes all registry that match this value, is you dont not want, use ctrl+c to exit.'))
         const answer = await inquirer.prompt([
           {
             type: 'input',
@@ -67,15 +69,19 @@ inquirer
           }
         ])
 
+        console.log(chalk.bgRed('~~~~~~~doing~~~~~~~'))
+
         ret = await exec(`docker images --format '{{.Repository}}:{{.Tag}}' | grep ${answer[choiceVal]} | xargs docker rmi`)
       } else if (choiceVal === 'all') {
+        console.log(chalk.bgRed('~~~~~~~doing~~~~~~~'))
+    
         ret = await exec('docker rmi $(docker images -q)')
       } else {
         return
       }
-      console.log(ret.stdout)
-      console.log('~~~~~~~work success!~~~~~~~')
+      console.log(chalk.green(ret.stdout))
+      console.log(chalk.green('~~~~~~~work success!~~~~~~~'))
     } catch (error) {
-      console.error(`exec error: ${error.message}`)
+      console.error(chalk.red(`exec error: ${error.message}`))
     }
   })

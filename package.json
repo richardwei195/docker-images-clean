@@ -7,6 +7,9 @@
     "start": "node index",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "bin": {
+    "dic": "index"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/richardwei195/docker-images-clean.git"
@@ -25,6 +28,7 @@
   },
   "homepage": "https://github.com/richardwei195/docker-images-clean#readme",
   "dependencies": {
+    "chalk": "^2.4.2",
     "inquirer": "^6.2.2"
   },
   "devDependencies": {
