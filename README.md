@@ -60,3 +60,5 @@ Deleted: sha256:ce0a350610c7795e81b6dc58aebd24c9006adc7ffc62148db5b388a607e74df9
 ```
 
 Now the id which is fa9504181cbd has been deleted.
+
+[![asciicast](https://asciinema.org/a/XTUlEi64Tbn6o6FBKC9YU7JoZ.svg)](https://asciinema.org/a/XTUlEi64Tbn6o6FBKC9YU7JoZ)
