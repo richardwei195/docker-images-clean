@@ -1,0 +1,33 @@
+{
+  "name": "docker-images-clean",
+  "version": "0.0.1",
+  "description": "A terminal tools for clean docker images quickly",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/richardwei195/docker-images-clean.git"
+  },
+  "keywords": [
+    "npm",
+    "docker",
+    "nodejs",
+    "javascript",
+    "shell"
+  ],
+  "author": "richardwei",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/richardwei195/docker-images-clean/issues"
+  },
+  "homepage": "https://github.com/richardwei195/docker-images-clean#readme",
+  "dependencies": {
+    "inquirer": "^6.2.2"
+  },
+  "devDependencies": {
+    "eslint": "^5.15.3"
+  }
+}
